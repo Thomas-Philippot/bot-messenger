@@ -4,7 +4,7 @@ const BootBot = require('bootbot');
 const bot = new BootBot({
     accessToken: process.env.ACCESS_TOKEN,
     verifyToken: process.env.VERIFY_TOKEN,
-    appSecret: process.env.APP-SECRET
+    appSecret: process.env.APP_SECRET
 });
 
 bot.on('message', (payload, chat) => {
