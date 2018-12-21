@@ -1,5 +1,6 @@
 'use strict';
 const BootBot = require('bootbot');
+require('dotenv').config();
 
 const bot = new BootBot({
     accessToken: process.env.ACCESS_TOKEN,
@@ -7,13 +8,13 @@ const bot = new BootBot({
     appSecret: process.env.APP_SECRET
 });
 
-bot.on('message', (payload, chat) => {
+bot.on('message', (payload) => {
     const text = payload.message.text;
     console.log(`The user said: ${text}`);
 });
 
-bot.hear(['hello', 'hi', 'hey'], (payload, chat) => {
+bot.hear(['hello', 'hi', 'hey', 'coucou'], (payload, chat) => {
     chat.say('Hello human !')
 });
 
-bot.start();
+bot.start(80);
