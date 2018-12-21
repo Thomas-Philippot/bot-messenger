@@ -1,6 +1,5 @@
 'use strict';
 const BootBot = require('bootbot');
-require('dotenv').config();
 
 const bot = new BootBot({
     accessToken: process.env.ACCESS_TOKEN,
