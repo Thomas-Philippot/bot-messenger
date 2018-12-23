@@ -73,18 +73,110 @@ bot.hear('Tous nos croques', (payload, chat) => {
 });
 
 bot.hear('Bières', (payload, chat) => {
-
+    chat.say({
+        text: 'La pression, notre grande passion !  🍻',
+        quickReplies: ['La bière du mois','Toutes nos bières']
+    })
 });
 
-bot.hear('Evénements', (payload, chat) => {
+bot.hear('La bière du mois', (payload, chat) => {
+    chat.say('PALM EICHBAUM ROYALE :\n' +
+            '\nEichbaum Hefeweizen Hell. Bière blanche allemande non filtrée aux arômes fruités'
+            ).then(() => {
+        chat.sendAttachment('image', 'https://scontent-frt3-2.cdninstagram.com/vp/3683dd078fd65d7dc0c700b352a898a3/5CBAB596/t51.2885-15/e35/47487921_220402265501882_60774496771215156_n.jpg?_nc_ht=scontent-frt3-2.cdninstagram.com').then(() => {
+            chat.say({
+                text: 'Est-ce que j\'ai répondu à toutes tes questions ?',
+                quickReplies: ['Oui, merci ! 😋', 'Non ... 😔']
+            })
+        })
+    })
+});
 
+bot.hear('Toutes nos bières', (payload, chat) => {
+    chat.sendAttachment('image', 'https://images.pexels.com/photos/1267682/pexels-photo-1267682.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940').then(() => {
+        chat.say('Toutes nos bières içi : https://www.lecroquebedaine.fr/bierescroques/').then(() => {
+            chat.say({
+                text: 'Est-ce que j\'ai répondu à toutes tes questions ?',
+                quickReplies: ['Oui, merci ! 😋', 'Non ... 😔']
+            })
+        })
+    })
 });
 
 bot.hear('Infos pratiques', (payload, chat) => {
     chat.say({
-        text: '',
-        quickReplies: ['', 'Infos ']
+        text: 'Que souhaites-tu savoir ? 🤔',
+        quickReplies: ['Y accéder', 'Vous appeler', 'Questions spcéciales']
     });
+});
+
+bot.hear('Y accéder', (payload, chat) => {
+    chat.say({
+        text: 'Par quel moyen veut tu venir ?',
+        quickReplies: ['🚋 Tramway', '🚲 Vélo-Bicloo', '🚗 Voiture']
+    })
+});
+
+
+bot.hear(['🚋 Tramway', 'Tramway'], (payload, chat) => {
+    chat.say('Ligne 2 : Place du cirque\nLigne 3 : Bretagne').then(() => {
+        chat.say({
+            text: 'Est-ce que j\'ai répondu à toutes tes questions ?',
+            quickReplies: ['Oui, merci ! 😋', 'Non ... 😔']
+        })
+    })
+});
+
+bot.hear(['🚲 Vélo-Bicloo', 'Vélo', 'Bicloo'], (payload, chat) => {
+    chat.say('Station N°6 : Place du cirque\nStation N°13 : Bretagne sud\nStation N°8 : Boucherie').then(() => {
+        chat.say({
+            text: 'Est-ce que j\'ai répondu à toutes tes questions ?',
+            quickReplies: ['Oui, merci ! 😋', 'Non ... 😔']
+        })
+    })
+});
+
+bot.hear(['🚗 Voiture', 'Voiture'], (payload, chat) => {
+    chat.say({
+        text: 'Ma voiture ?',
+        quickReplies: ['Ma voiture', 'En marguerite']
+    })
+});
+
+bot.hear(['Ma voiture'], (payload, chat) => {
+    chat.say('Parking Tour Bretagne\nParking Talensac\nParking Place Viarme').then(() => {
+        chat.say({
+            text: 'Est-ce que j\'ai répondu à toutes tes questions ?',
+            quickReplies: ['Oui, merci ! 😋', 'Non ... 😔']
+        })
+    })
+});
+
+bot.hear(['En marguerite'], (payload, chat) => {
+    chat.say('Station : Arche Sèche\nStation : Bretagne\nStation : Cinquante Otages').then(() => {
+        chat.say({
+            text: 'Est-ce que j\'ai répondu à toutes tes questions ?',
+            quickReplies: ['Oui, merci ! 😋', 'Non ... 😔']
+        })
+    })
+});
+
+bot.hear('Vous appeler', (payload, chat) => {
+    chat.say('+33 2 40 48 95 95')
+});
+
+bot.hear('Questions spcéciales', (payload, chat) => {
+    chat.say('Pose nous t\'a question, elle sera lu le plus vite possible')
+});
+
+bot.hear('Evénements', (payload, chat) => {
+    chat.say('Prends ton agendas et note notre planning du mois ! ☺');
+    chat.sendAttachment('image', 'http://img.over-blog-kiwi.com/0/95/30/84/20180626/ob_22e7c5_dgnuvauwaaeaobx.jpg').then(() => {
+        chat.say({
+            text: 'Est-ce que j\'ai répondu à toutes tes questions ?',
+            quickReplies: ['Oui, merci ! 😋', 'Non ... 😔']
+        })
+    })
 });
 
 bot.start();
