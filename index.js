@@ -1,6 +1,5 @@
 'use strict';
 const BootBot = require('bootbot');
-require('dotenv').config();
 
 const bot = new BootBot({
     accessToken: process.env.ACCESS_TOKEN,
@@ -179,4 +178,4 @@ bot.hear('Evénements', (payload, chat) => {
     })
 });
 
-bot.start();
+bot.start(process.env.PORT);
